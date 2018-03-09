@@ -2,3 +2,7 @@ find -regex '.*/.*\.\(c\|cpp\|h\|py\)$' | xargs ctags -R
 
 To get absolute path:
 readlink -f filename 
+
+
+Details:
+https://github.com/scrooloose/nerdtree
