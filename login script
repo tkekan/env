@@ -1,6 +1,6 @@
 #!/usr/bin/expect
 set name [lindex $argv 0];
-set machine "tkekan@contrail-ubm-$name.ccp.juniper.net"
+set machine "tkekan@<machine_name>"
 spawn ssh $machine
 expect "*password:"
 send "Reptya@1\r"
