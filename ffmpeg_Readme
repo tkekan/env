@@ -1,0 +1,10 @@
+
+Converting mp4 to mpeg2 
+ffmpeg -i input.mp4  \
+-vcodec mpeg2video \ 
+-s 1920x1080 \ #resolution
+-bufsize 4096k \
+-maxrate 20000k \ #max bit rate
+-qscale:v 2 \ #To maintain the quality q = 1 - 31 ( Should be less that 4/5 for good quality )
+-c:a mp2 \ # For audio stream, can keep as copy ( see examples for copy audio stream ) 
+-f vob output.mpg # vob is output used specific for mpeg2
