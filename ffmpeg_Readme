@@ -8,3 +8,14 @@ ffmpeg -i input.mp4  \
 -qscale:v 2 \ #To maintain the quality q = 1 - 31 ( Should be less that 4/5 for good quality )
 -c:a mp2 \ # For audio stream, can keep as copy ( see examples for copy audio stream ) 
 -f vob output.mpg # vob is output used specific for mpeg2
+
+For Home DVD: (Cause above command didn't worked out, keeping just for reference ) 
+ffmpeg -i .inputmp4 \
+        -target pal-dvd 
+        -aspect 4:3 # TV is not LCD / LED hence 4:3 else 16:9 recommended
+        -b:v 8000k 
+        -minrate 6000k #IF 8000k was enforeced, the coloring sucked!
+        -maxrate 8000k 
+        -bufsize 4500k 
+        -vsync 0    #For supressing the duplicate frames. 
+        -ac 2 /tmp/Home_highlights.mpg
